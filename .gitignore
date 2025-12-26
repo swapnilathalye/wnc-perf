@@ -23,3 +23,4 @@ backend/output_csv/
 backend/properties/
 backend/server_logs/
 backend/uploads/
+frontend/smartdashboard-frontend/node_modules/
