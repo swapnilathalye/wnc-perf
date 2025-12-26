@@ -1,0 +1,167 @@
+/* Layout reset: prevent page scroll; allow internal scroll containers */
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  overflow: hidden; /* remove browser scrollbar */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+:root {
+  /* Base colors */
+  --bg: #0f172a;
+  --panel: #111827;
+  --card: #0f1720;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+
+  /* Accents */
+  --accent: #2d9cff;
+  --accent2: #7b61ff;
+
+  /* Borders & glass */
+  --border: #1f2937;
+  --glass: rgba(255,255,255,0.03);
+  --card-border: rgba(255,255,255,0.04);
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #071018 0%, #0b0f16 100%);
+  color: var(--text);
+  font-family: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ====== Page layout helpers ====== */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+  width: 100%;
+}
+
+/* Allow a page card to grow and let inner sections (tables) scroll */
+.page-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ====== Professional scrollbars ====== */
+/* Apply to any container you want to scroll (tables, panels, etc.) */
+.scrollbar {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;             /* Firefox */
+  scrollbar-color: rgba(255,255,255,0.25) rgba(255,255,255,0.06);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+  border-radius: 999px;
+  border: 2px solid rgba(0,0,0,0); /* makes thumb feel lighter */
+  background-clip: padding-box;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.35);
+  border: 2px solid rgba(0,0,0,0);
+  background-clip: padding-box;
+}
+
+h1 { margin: 0 0 16px 0; font-size: 26px; letter-spacing: 0.6px; }
+
+.dropdown-container {
+  margin-bottom: 20px;
+}
+
+.dropdown-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #1e1e1e;
+  color: #fff;
+  font-size: 15px;
+}
+
+.ai-section {
+  margin: 20px 0;
+  padding: 15px;
+  background: #111;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.ai-row {
+  display: flex;
+  gap: 10px;
+}
+
+.ai-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #1e1e1e;
+  color: #fff;
+}
+
+.ai-btn {
+  padding: 10px 20px;
+  background: #66d9ef;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+}
+
+.ai-output {
+  margin-top: 15px;
+  padding: 10px;
+  background: #222;
+  border-radius: 6px;
+  border: 1px solid #333;
+  white-space: pre-wrap;
+}
+
+.table-scroll-container {
+  /* Keep the table within the viewport and scroll the table body if needed.
+     Using scroll + stable gutter gives a consistent, professional scrollbar
+     even when a small dataset is loaded. */
+  height: clamp(260px, 58vh, 620px);
+  min-height: 0;
+  overflow-y: scroll;
+  overflow-x: auto;
+  margin-top: 20px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  min-height: 0;
+}
+

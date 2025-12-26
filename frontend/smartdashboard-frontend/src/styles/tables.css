@@ -1,0 +1,197 @@
+.perf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.perf-table th, .perf-table td {
+  padding: 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid #2a3b5a;
+  white-space: nowrap;
+}
+
+.perf-table th {
+  background: #16233b;
+  color: #66d9ef;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.perf-table th:hover { background: #1f2f4d; }
+
+.even-row { background-color: #0d1b2a; color: #bcd3ff; }
+.odd-row { background-color: #14243d; color: #bcd3ff; }
+
+.perf-table tr:hover { background-color: #1e3a5f; }
+
+/* Performance Tables layout */
+.perf-page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+.perf-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.perf-head-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.perf-pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 1px solid rgba(102, 217, 239, 0.35);
+  background: rgba(102, 217, 239, 0.06);
+  color: #66d9ef;
+  white-space: nowrap;
+}
+
+.perf-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 12px;
+}
+
+.perf-control-card {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  padding: 12px;
+  min-height: 0;
+}
+
+.perf-meta {
+  margin-top: 8px;
+}
+
+.perf-cols-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.perf-cols-scroll {
+  max-height: 140px;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+/* AI block */
+.perf-ai {
+  padding: 12px;
+}
+
+.perf-ai-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.perf-ai-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+}
+
+/* table scroll: avoid page scroll */
+.perf-table-scroll {
+  flex: 1;
+  min-height: 0;
+  max-height: calc(100vh - 360px); /* responsive */
+  overflow: auto;
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+  .perf-controls {
+    grid-template-columns: 1fr;
+  }
+  .perf-ai-row {
+    grid-template-columns: 1fr;
+  }
+  .perf-pill {
+    display: none; /* optional: reduce clutter */
+  }
+}
+
+
+.search-bar {
+  margin: 0.5rem 0;
+}
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.column-selector {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+.col-option {
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.table-scroll {
+  max-height: calc(100vh - 360px); /* 🔥 adapts to screen height */
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Keep table header visible */
+.table-scroll thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #1e1e1e; /* match your card background */
+}
+
+/* Professional scrollbar */
+.table-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Firefox */
+.table-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) rgba(255, 255, 255, 0.05);
+}

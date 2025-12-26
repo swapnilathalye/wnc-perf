@@ -1,0 +1,28 @@
+{
+  "folder": "20251225_upload1",
+  "tables": [
+    "20251225_upload1_CacheStatistics",
+    "20251225_upload1_JmxNotifications",
+    "20251225_upload1_Log4JavascriptEvents",
+    "20251225_upload1_MethodContexts",
+    "20251225_upload1_MethodContextStats",
+    "20251225_upload1_MethodServerInfo",
+    "20251225_upload1_MiscLogEvents",
+    "20251225_upload1_MSHealthStats",
+    "20251225_upload1_RawMethodContextStats",
+    "20251225_upload1_RawServletRequestStats",
+    "20251225_upload1_RemoteCacheServerCalls",
+    "20251225_upload1_RequestHistograms",
+    "20251225_upload1_RmiHistograms",
+    "20251225_upload1_RmiPerfData",
+    "20251225_upload1_SampledMethodContexts",
+    "20251225_upload1_SampledServletRequests",
+    "20251225_upload1_ServerManagerInfo",
+    "20251225_upload1_ServletRequests",
+    "20251225_upload1_ServletRequestStats",
+    "20251225_upload1_ServletSessionStats",
+    "20251225_upload1_SMHealthStats",
+    "20251225_upload1_TopSQLStats",
+    "20251225_upload1_UserAgentInfo"
+  ]
+}

@@ -1,0 +1,25 @@
+# Node modules
+frontend/node_modules/
+
+# Python virtual environments
+backend/venv/
+__pycache__/
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+frontend/build/
+*.log
+
+# Ignore backend folders
+backend/db/
+backend/logs/
+backend/output_csv/
+backend/properties/
+backend/server_logs/
+backend/uploads/

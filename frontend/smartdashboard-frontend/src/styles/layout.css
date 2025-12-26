@@ -1,0 +1,114 @@
+.app-shell {
+  display: flex;
+  height: 100dvh;
+  margin: 0 auto;
+  background: #0d1b2a;
+  overflow: hidden; /* no outer scroll */
+  min-height: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 18px;
+}
+
+.left-col {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(180px, auto));
+  gap: 18px;
+}
+
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 0.8fr;
+  gap: 12px;
+  padding: 12px;
+}
+
+.left-pane, .middle-pane, .right-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 1280px) {
+  .dashboard-grid { grid-template-columns: 1fr 1fr; }
+  .right-pane { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; }
+  .right-pane .small-card { flex: 1 1 240px; }
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .right-pane { flex-direction: column; }
+}
+
+
+/* Ensure chart spans full available width */
+.full-width-chart {
+  width: 100%;
+  height: 400px; /* taller for clarity */
+}
+
+/* Optional: make the card itself stretch */
+.dashboard-server {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+
+/* Make the main content stretch WITHOUT page scrolling */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden; /* ✅ stop global scroll */
+}
+
+/* App.js wraps routes inside .main-content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden; /* ✅ stop global scroll */
+}
+
+/* Keep main-scroll but disable it for dashboard pages.
+   If other pages need scroll, use .main-scroll on those pages only. */
+.main-scroll {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden; /* ✅ stop global scroll */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Responsive layout */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
+}

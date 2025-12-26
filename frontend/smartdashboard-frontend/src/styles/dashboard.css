@@ -1,0 +1,514 @@
+/* Dashboard charts */
+.dashboard-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.chart-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Keep charts from getting too tall and causing page overflow.
+   Wrapper height drives Recharts sizing, so charts won't overlap when adding more. */
+.chart-card .chart-wrap {
+  height: clamp(240px, 34vh, 360px);
+  min-height: 220px;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .dashboard-charts {
+    grid-template-columns: 1fr;
+  }
+  .chart-card .chart-wrap {
+    height: 260px;
+  }
+}
+
+/* AI Query section */
+.ai-section-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.ai-part {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Data box */
+.data-box {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ai-section-grid {
+    flex-direction: column;
+  }
+}
+
+
+/* ===========================
+   Dashboard VP Layout
+   =========================== */
+
+.dashboard-vp-grid {
+  flex: 1;                 /* ✅ fill whatever .main gives */
+  min-height: 0;           /* ✅ critical to allow internal scroll */
+  display: grid;
+  gap: 1rem;
+  grid-template-rows: 20% 20% 30% 30%;
+  overflow: hidden;        /* ✅ prevent page-level overflow */
+}
+
+
+.dash-section {
+  min-height: 0;           /* ✅ critical */
+  overflow: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;   /* parent does NOT scroll */
+}
+
+/* Section headers */
+.dash-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.dash-h3 {
+  margin: 0;
+  color: #66d9ef;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.dash-note.subtle,
+.subtle {
+  color: rgba(188, 211, 255, 0.75);
+}
+
+/* ===========================
+   Section 1: 4 columns
+   =========================== */
+.dash-s1-grid {
+  display: grid;
+  gap: 0.75rem;
+  height: 100%;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.dash-mini-card {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  padding: 0.9rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dash-mini-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.dash-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #e9f2ff;
+}
+
+.dash-subtitle {
+  font-size: 0.9rem;
+  color: rgba(188, 211, 255, 0.8);
+}
+
+.dash-meta {
+  margin-top: 0.5rem;
+  color: rgba(233, 242, 255, 0.9);
+}
+
+.dash-chip {
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  border: 1px solid rgba(102, 217, 239, 0.45);
+  color: #66d9ef;
+  background: rgba(102, 217, 239, 0.07);
+  font-weight: 700;
+}
+
+.dash-chip.muted {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(233, 242, 255, 0.75);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dash-label {
+  display: block;
+  font-size: 0.82rem;
+  color: rgba(188, 211, 255, 0.9);
+  margin-bottom: 0.25rem;
+}
+
+.dash-date-row {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+
+.dash-actions {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.dash-help {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+/* KV list */
+.kv {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.25rem 0;
+}
+.kv .k {
+  color: rgba(188, 211, 255, 0.78);
+}
+.kv .v {
+  color: rgba(233, 242, 255, 0.95);
+  font-weight: 700;
+}
+
+/* ===========================
+   Section 2: 3 KPI cards
+   =========================== */
+.dash-s2-grid {
+  display: grid;
+  gap: 0.75rem;
+  height: 100%;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.dash-kpi-card {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dash-kpi-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.dash-kpi-label {
+  font-weight: 700;
+  color: rgba(233, 242, 255, 0.92);
+}
+
+.dash-kpi-trend {
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dash-kpi-trend.up {
+  color: #66d9ef;
+  border-color: rgba(102, 217, 239, 0.35);
+  background: rgba(102, 217, 239, 0.06);
+}
+
+.dash-kpi-trend.down {
+  color: #ff7a7a;
+  border-color: rgba(255, 122, 122, 0.35);
+  background: rgba(255, 122, 122, 0.06);
+}
+
+.dash-kpi-value {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #e9f2ff;
+  margin-top: 0.5rem;
+}
+
+.dash-kpi-sub {
+  margin-top: 0.25rem;
+}
+
+/* ===========================
+   Section 3: 3 chart cards
+   =========================== */
+.dash-s3-grid {
+  display: grid;
+  gap: 0.75rem;
+  height: 100%;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.dash-chart-card {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dash-chart-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.dash-chart-title {
+  font-weight: 800;
+  color: rgba(233, 242, 255, 0.95);
+}
+
+.dash-chart-sub {
+  margin-top: 0.2rem;
+}
+
+.dash-chart-stat {
+  font-weight: 900;
+  color: #66d9ef;
+  border: 1px solid rgba(102, 217, 239, 0.35);
+  background: rgba(102, 217, 239, 0.06);
+  padding: 0.3rem 0.6rem;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.dash-chart-placeholder {
+  margin-top: 0.9rem;
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.015);
+  padding: 0.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dash-placeholder-line {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  margin-bottom: 0.5rem;
+}
+
+.dash-placeholder-bars {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.4rem;
+  align-items: end;
+  margin-top: 0.25rem;
+}
+.dash-placeholder-bars .bar {
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(102, 217, 239, 0.16);
+}
+.dash-chart-foot {
+  margin-top: 0.6rem;
+}
+
+/* ===========================
+   Section 4: AI (2 columns)
+   =========================== */
+.dash-s4-grid {
+  display: grid;
+  gap: 0.75rem;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.dash-ai-card {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dash-ai-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.dash-ai-title {
+  font-weight: 900;
+  color: #e9f2ff;
+}
+
+.dash-ai-body {
+  flex: 1;
+  overflow: auto;
+  padding-right: 0.25rem;
+}
+
+.dash-ai-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: rgba(233, 242, 255, 0.9);
+}
+
+.dash-textarea {
+  width: 100%;
+  resize: none;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.15);
+  color: rgba(233, 242, 255, 0.95);
+  padding: 0.75rem;
+  outline: none;
+}
+
+.dash-ai-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.dashboard-btn.secondary {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dash-ai-answer {
+  margin-top: 0.85rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.75rem;
+}
+
+.dash-ai-answer-head {
+  font-weight: 800;
+  color: rgba(233, 242, 255, 0.9);
+  margin-bottom: 0.35rem;
+}
+
+/* Professional internal scrollbar */
+.dash-ai-body::-webkit-scrollbar {
+  width: 10px;
+}
+.dash-ai-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+}
+.dash-ai-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+}
+.dash-ai-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+.dash-ai-body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) rgba(255, 255, 255, 0.05);
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 1200px) {
+  .dash-s1-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dash-s2-grid {
+    grid-template-columns: 1fr;
+      scrollbar-gutter: stable;
+  }
+  .dash-s3-grid {
+    grid-template-columns: 1fr;
+      scrollbar-gutter: stable;
+  }
+  .dash-s4-grid {
+    grid-template-columns: 1fr;
+    flex: 1;
+  overflow: hidden;
+  }
+  .dashboard-vp-grid {
+  flex: 1;                 /* 🔥 fills available height */
+  display: grid;
+  gap: 1rem;
+  grid-template-rows: 20% 20% 30% 30%;
+  overflow: hidden;        /* 🔥 no page scroll */
+}
+
+}
+
+@media (max-width: 700px) {
+  .dash-date-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dash-s4 {
+  overflow: hidden;
+}
+
+.dash-s3 {
+  overflow: hidden;
+}
+
+.dash-s3-grid {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.dash-s2 {
+  overflow: hidden;
+}
+
+.dash-s2-grid {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.dash-s2-grid,
+.dash-s3-grid,
+.dash-ai-body {
+  min-height: 0;
+}
