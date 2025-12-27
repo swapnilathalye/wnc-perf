@@ -1,0 +1,46 @@
+.settings-card {
+  max-width: 720px;
+}
+
+.settings-section {
+  margin-top: 1.5rem;
+}
+
+.settings-label {
+  display: block;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: #e9f2ff;
+}
+
+.settings-slider {
+  width: 100%;
+    margin-top: 0.5rem;
+}
+
+.settings-checkbox {
+  display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    color: #cbd5f5;
+}
+
+.settings-select {
+  width: 100%;
+    padding: 0.55rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.25);
+    color: #e9f2ff;
+}
+
+.settings-hint {
+  margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: rgba(188, 211, 255, 0.7);
+}
+
+.settings-actions {
+  margin-top: 2rem;
+}

@@ -10,6 +10,7 @@ import './styles/upload.css';
 import './styles/sidebar.css';
 import './styles/dashboard.css';
 import './styles/chart.css';
+import './styles/settings.css';
 
 const root = createRoot(document.getElementById("root"));
 root.render(<App />);

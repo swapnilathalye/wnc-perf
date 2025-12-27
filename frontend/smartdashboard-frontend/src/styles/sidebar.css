@@ -1,13 +1,13 @@
 .sidebar {
   min-height: 0;
-  overflow: auto;
-
+    overflow: auto;
+  
   width: 240px;
-  background: #16233b;
-  color: #bcd3ff;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
+    background: #16233b;
+    color: #bcd3ff;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar.collapsed {
@@ -16,36 +16,36 @@
 
 .sidebar-header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem;
-  border-bottom: 1px solid var(--border);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border);
 }
 
 .collapse-btn {
   background: none;
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 0.4rem 0.5rem;
-  border-radius: 8px;
-  cursor: pointer;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.4rem 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .nav {
   margin-top: 0.75rem;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-item {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0.6rem;
-  border-radius: 8px;
-  cursor: pointer;
-  color: var(--text);
-  transition: background 0.2s ease, color 0.2s ease;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text);
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .nav-item:hover {
@@ -54,18 +54,18 @@
 
 .sub-nav {
   margin-left: 1.5rem;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-sub-item {
   padding: 0.4rem 0.5rem;
-  color: var(--muted);
-  cursor: pointer;
-  border-radius: 6px;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 6px;
 }
 
 .nav-sub-item:hover {
   background: #16233b;
-  color: var(--text);
+    color: var(--text);
 }

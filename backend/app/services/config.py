@@ -10,18 +10,35 @@ def load_config() -> dict:
     """
     Load configuration from config.json.
     Returns defaults if file is missing or invalid.
+    Ensures backward compatibility and required keys.
     """
+    defaults = {
+        "days": 7,
+        "autoDelete": False,
+        "language": "en",
+    }
+
     try:
-        if CONFIG_PATH.exists():
-            with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-                config = json.load(f)
-                logger.info("📄 Loaded config: %s", config)
-                return config
-        logger.warning("⚠️ Config file not found, using defaults")
-        return {"days": 7, "autoDelete": False}
+        if not CONFIG_PATH.exists():
+            logger.warning("⚠️ Config file not found, using defaults")
+            return defaults.copy()
+
+        with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+            config = json.load(f)
+            logger.info("📄 Loaded config: %s", config)
+
+        # Backward compatibility / self-healing
+        for key, default_value in defaults.items():
+            if key not in config:
+                logger.info("🔧 Adding missing config key '%s' with default '%s'", key, default_value)
+                config[key] = default_value
+
+        return config
+
     except Exception as e:
-        logger.error("❌ Failed to load config: %s", e)
-        return {"days": 7, "autoDelete": False}
+        logger.error("❌ Failed to load config.json, using defaults: %s", e)
+        return defaults.copy()
+
 
 
 def save_config(config: dict) -> None:

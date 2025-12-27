@@ -1,4 +1,5 @@
 {
   "days": 7,
-  "autoDelete": true
+  "autoDelete": false,
+  "language": "fr"
 }
